@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>cPanel UI Developer Javascript Test</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- Sorry about the inline css. We would normally use external css but wanted to only have a single file for the test -->
+<link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+<!--    ==============        PART 1        =================      -->
+
+
+<div class="container" id="registrationform" style="width:100%;">
+	<h2>Part 1: Register your cPanel Software</h2>
+	<form  action="register.cgi" method="POST" name="loginform" onsubmit="checkFormValidation(event)">
+		<input type="hidden" name="action" value="register" />
+			<div class="form-group">
+				<label for="username">Desired User Name</label>
+				<input class="form-control" type="text" id="username" name="username"  value="" placeholder="Enter your user name">
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input class="form-control" type="password" id="password" name="password" value="" placeholder="Enter your password">
+			</div>
+			<div class="form-group">
+				<label for="usernumber">User Number</label>
+				<input class="form-control" type="password" id="usernumber" name="usernumber" value="" placeholder="Enter your user number">
+			</div>
+			<div class="form-group">
+				<label for="geoglocation">Geographic Location</label>
+				<input class="form-control" type="password" id="geoglocation" name="geoglocation" value="" placeholder="Enter your geographic location">
+			</div>
+			<div class="btn-container">
+				<input type="submit" alt="register" name="register" value="Register" id="submit_btn" class="btn btn-primary"/>
+			</div>
+		</form>
+	</div>
+	<div id="username-message">
+		<h3>Username must contain the following:</h3>
+		<p id="username-letter" class="invalid">A <b>lowercase</b> letter</p>
+		<p id="username-capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+		<p id="username-number" class="invalid">A <b>number</b></p>
+		<p id="username-special-chr" class="valid">No <b>special character</b></p>
+	</div>
+	<div id="password-message">
+		<h3>Password must contain the following:</h3>
+		<p id="psw-number" class="invalid">At least <b>2 numbers</b></p>
+		<p id="psw-length" class="invalid">Minimum <b>8 characters</b>, maximum <b>15 characters</b></p>
+	</div>
+	<div id="user-number-message">
+		<h3>User number must contain the following:</h3>
+		<p id="user-number-length" class="invalid">Must be <b>36 characters</b></p>
+		<p id="user-number-no-letter" class="invalid">All characters must be <b>numbers</b></p>
+	</div>
+	<div id="message" class="message"></div>
+</div>
+
+<br /><br />
+
+
+<!--    ==============        PART 2      =================      -->
+
+
+<script src="filterArray.js"></script>
+
+<br /><br />
+
+
+
+<!--    ==============        PART 4        =================      -->
+
+
+
+<h2>Part 4: Flickr Photos</h2>
+<p>Click on the button to see where it's _______.</p>
+<input type="button" id="flickrpics" value="Show Pictures" class="btn btn-primary" onclick="displayImages()"/>
+<div class="img-container">
+	​
+	<div class="card mb-3" style="max-width: 540px;" id="imageContainer">
+
+	</div>
+
+<script src="formValidation.js"></script>
+
+<script src="parseImages.js"></script>
+</body>
+</html>
